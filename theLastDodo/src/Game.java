@@ -4,8 +4,9 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import javax.swing.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -45,6 +46,8 @@ public class Game implements KeyboardHandler {
 
     public void loadStart() {
 
+        music.start();
+
         grid.init();
         background.drawBackground();
         keyboardInit();
@@ -53,14 +56,8 @@ public class Game implements KeyboardHandler {
 
         background.menuScreen();
 
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                music.start();
-                loadComplete= true;
-            }
-        }, 500);
+        music.play();
+        loadComplete = true;
 
     }
 
@@ -136,7 +133,7 @@ public class Game implements KeyboardHandler {
 
         music.stop();
 
-        if(!isGameCompleted) {
+        if (!isGameCompleted) {
             background.levelEnd();
         } else {
             background.gameEnd();
@@ -201,10 +198,10 @@ public class Game implements KeyboardHandler {
 
             if (isGameStarted && canStartGame) {
 
-                start();
                 music.play();
+                start();
 
-                if(Score.isScoreStarted) {
+                if (Score.isScoreStarted) {
                     score.resumeTimer();
                 } else score.initScore();
             }

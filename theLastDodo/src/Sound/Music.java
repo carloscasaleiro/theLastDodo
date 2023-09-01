@@ -6,8 +6,7 @@ import java.net.URL;
 
 public class Music {
 
-    static Clip clip;
-
+    Clip clip;
     URL musicURL;
 
     public void start() {
@@ -25,12 +24,12 @@ public class Music {
         AudioInputStream sound = AudioSystem.getAudioInputStream(soundFileName);
         clip = AudioSystem.getClip();
         clip.open(sound);
-        play();
     }
 
     public void play() {
 
         clip.setFramePosition(0);
+        clip.loop(-1);
         clip.start();
     }
 
