@@ -4,3 +4,5 @@
 
 PRESS SPACE!
 
+![gameMenu](https://github.com/carloscasaleiro/theLastDodo/assets/139387646/aa0ba64e-a665-44ee-ae5d-94918d58d520)
+![gamePlay](https://github.com/carloscasaleiro/theLastDodo/assets/139387646/4fa4ac06-a04f-4822-a6d2-0de07c4c6c27)
